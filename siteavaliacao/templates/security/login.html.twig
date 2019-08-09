@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { padding: 2px 6px; }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="example-wrapper">
+                {% if error %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endif %}
+
+                <form action="{{ path('app_login') }}" method="POST" class="form-signin">
+                    <div class="container login-box">
+                        <div class="row">
+                            <div class="col">
+                                <h1 class="h5 mb-3 font-weight-normal text-center">Para continuar, faça o login.</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" id="inputUsername" name="username" value="{{ last_username }}" class="form-control" placeholder="Usuário" required autofocus>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Senha" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-lg btn-primary btn-block float-right" type="submit">Login</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    </div>
+                </form>
+
+                <hr class="my-4">
+                <div class="text-center">
+                    <span>Ou <a href="{{ path('register') }}" class="badge badge-info">inscreva-se</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

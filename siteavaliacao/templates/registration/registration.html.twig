@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscrever-se!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { padding: 2px 6px; }
+    </style>
+
+    <div action="{{ path('register') }}" class="example-wrapper">
+        {{ form_start(form, {attr: {class: 'form-register'} }) }}
+            <div class="container register-box">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="h5 mb-3 font-weight-normal text-center">Inscreva-se.</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form_row(form.username) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form_row(form.password.first) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form_row(form.password.second) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-lg btn-primary btn-block float-right" type="submit">Inscrever-se</button>
+                    </div>
+                </div>
+            </div>
+        {{ form_end(form) }}
+
+        <hr class="my-4">
+        <div class="text-center">
+            <span>Ou <a href="{{ path('app_login') }}" class="badge badge-info">faça o login</a></span>
+        </div>
+    </div>
+{% endblock %}

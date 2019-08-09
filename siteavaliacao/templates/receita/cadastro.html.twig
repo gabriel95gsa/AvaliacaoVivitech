@@ -1,0 +1,29 @@
+{% extends '/dashboard/index.html.twig' %}
+
+{% block title %}Cadastro de receita{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <div class="col">
+                <h1 class="h2">Cadastrar receita</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form-cadastro-box">
+                {{ form_start(form, {attr: {class: 'form-cadastro-receita'} }) }}
+                    <div class="mb-3">
+                        {{ form_row(form.descricao) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.valor) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.data) }}
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block float-right" type="submit">Cadastrar</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
